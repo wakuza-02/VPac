@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainability - Venkpac</title>
+    
+    <!-- Link to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+   <!-- ======================= HEADER (UPDATED FOR MOBILE) ======================= -->
+<header class="main-header">
+    <div class="logo">
+        <a href="index.html">
+            <!-- Make sure this path is correct -->
+            <img src="images/VP Logo.png" alt="Venkpac Logo" class="logo-image">
+            <span class="logo-text">Venk - Pac Pty Ltd</span>
+        </a>
+    </div>
+
+    <nav class="main-nav">
+        <ul>
+            <li>
+                <a href="sustainability.html" class="nav-link">
+                    <span>Green Initiatives</span>
+                </a>
+            </li>
+            <li class="has-submenu">
+                <span class="dropdown-trigger">Services</span> <!-- This is not a link, so it's excluded -->
+                <ul class="dropdown-menu">
+                    <li><a href="services-menu/extrusion.html"><span>Blown Film Extrusion</span></a></li>
+                    <li><a href="services-menu/printing.html"><span>Flexographic Printing</span></a></li>
+                    <li><a href="services-menu/lamination.html"><span>Lamination</span></a></li>
+                    <li><a href="services-menu/slitting.html"><span>Slitting & Finishing</span></a></li>
+                    <li><a href="services-menu/conversion.html"><span>Conversion</span></a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <span class="dropdown-trigger">Products</span> <!-- This is not a link, so it's excluded -->
+                <ul class="dropdown-menu">
+                    <li><a href="products/films.html"><span>Converter Films</span></a></li>
+                    <li><a href="products/nonfood.html"><span>Non Food</span></a></li>
+                    <li><a href="products/food.html"><span>Food</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="about.html" class="nav-link">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="contact.html" class="nav-link">
+                    <span>Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+    <!-- This is the new Mobile "Hamburger" Button -->
+    <button class="mobile-nav-toggle" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
+
+<!-- This is the new Mobile Navigation Panel (Place it right after the header) -->
+<div class="mobile-nav-panel">
+    <div class="mobile-nav-main">
+        <ul>
+            <li><a href="sustainability.html">Green Initiatives</a></li>
+            <li class="has-submenu"><a href="#" class="mobile-submenu-trigger">Services ></a></li>
+            <li class="has-submenu"><a href="#" class="mobile-submenu-trigger">Products ></a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <!-- Submenu for Services -->
+    <div class="mobile-nav-submenu" data-submenu="Services">
+        <button class="mobile-nav-back">< Services</button>
+        <ul>
+            <li><a href="services-menu/extrusion.html">Blown Film Extrusion</a></li>
+            <li><a href="services-menu/printing.html">Flexographic Printing</a></li>
+            <li><a href="services-menu/lamination.html">Lamination</a></li>
+            <li><a href="services-menu/slitting.html">Slitting & Finishing</a></li>
+            <li><a href="services-menu/conversion.html">Conversion</a></li>
+        </ul>
+    </div>
+    <!-- Submenu for Products -->
+    <div class="mobile-nav-submenu" data-submenu="Products">
+        <button class="mobile-nav-back">< Products</button>
+        <ul>
+            <li><a href="products/films.html">Converter Films</a></li>
+            <li><a href="products/nonfood.html">Non Food</a></li>
+            <li><a href="products/food.html">Food</a></li>
+        </ul>
+    </div>
+</div>
+
+        <main class="hero-section sustainability-hero">
+        <video class="background-video" autoplay loop muted>
+            <!-- Replace with the path to your ocean video -->
+            <source src="videos/ocean-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container sustainability-hero-container">
+            <!-- Left Column: Text Content -->
+            <div class="hero-text-content">
+                <h1>SUSTAINABILITY</h1>
+                <p class="hero-subtitle">Venk-Pac Stands For Sustainability</p>
+            </div>
+            <!-- Right Column: Graphic -->
+            <div class="hero-graphic-content">
+                <!-- Replace with the path to your sustainability graphic -->
+                <img src="images/Recycle Logo.png" alt="Product Planet People Graphic">
+            </div>
+        </div>
+    </main>
+
+        <!-- ADD THIS NEW, CORRECTLY STRUCTURED SECTION -->
+        <section class="detailed-sustainability-section">
+            <!-- The two-column layout is now the main container, allowing it to be full-width -->
+            <div class="two-column-layout">
+                
+                <!-- Left Column: Text Content -->
+                <!-- The 'container' class is now applied here to constrain ONLY the text -->
+                <div class="text-column container">
+                    <h2 class="section-heading">
+                        Ours is an industry with an inevitable impact on the environment, but we take our responsibility to protect it seriously, reducing any effect to an absolute minimum.
+                    </h2>
+                    <p>
+                        At the heart of our program is our investment in a cutting-edge Erema degrassing recycler. This isn't just about processing our own scrap; it's about leading by example. This advanced system allows us to convert all internal production materials back into high-quality, reusable pellets.
+                    </p>
+                    <p>
+                        Our aims are clear, and we achieve them by adhering to the highest standards:
+                    </p>
+                    <ul class="styled-list">
+                        <li>We consider environmental impacts from the very beginning of any new product development.</li>
+                        <li>We constantly work to improve the energy efficiency of our processing equipment.</li>
+                        <li>We reduce material consumption by re-using and recycling wherever practical.</li>
+                        <li>We encourage our employees and partners to act in an environmentally responsible way.</li>
+                    </ul>
+                    <p>
+                        This commitment extends to our partners. We offer a buy-back program for surplus or redundant plastic stock, helping our clients meet their own sustainability goals while participating in a true circular economy.
+                    </p>
+                </div>
+
+                <!-- Right Column: Image -->
+                <div class="image-column">
+                    <!-- Replace with your desired image -->
+                    <img src="images/sustainability-1.jpg" alt="A clean ocean environment, showcasing the goal of sustainability.">
+                    <img src="images/sustainability-2.jpg" alt="Description for the second sustainability image." style="margin-top: 24px;">
+
+                </div>
+
+            </div>
+        </section>
+
+<!-- ======================= SUSTAINABILITY FEATURE CARD SECTION ======================= -->
+<section class="page-content-section-sustainability">
+        <!-- We use the base class 'feature-card' AND our new modifier class -->
+        <div class="feature-card feature-card--sustainability">
+            
+            <!-- The image now gets a specific class so we can control its height -->
+            <img src="images/environment.jpg" alt="Greenery Background" class="feature-card-image-sustainability">
+            
+            <!-- The text overlay container -->
+            <div class="feature-card-text">
+                <!-- All your sustainability content now lives inside this overlay -->
+                <p class="section-lead-text">
+                    Our commitment to sustainability is built into every stage of our manufacturing process. We believe that true environmental responsibility is achieved through intelligent technology, a closed-loop process, and a partnership approach that delivers tangible benefits.
+                </p>
+                
+                <div class="definitions-list">
+                    <div class="definition-item">
+                        <h3 class="highlight-text">Technology</h3>
+                        <p>We invest in state-of-the-art recycling systems to ensure maximum efficiency, material purity, and the highest quality in our finished products.</p>
+                    </div>
+                    
+                    <div class="definition-item">
+                        <h3 class="highlight-text">Process</h3>
+                        <p>Our goal is zero waste. We operate a closed-loop system where all internal production scrap is reprocessed and converted back into valuable raw material.</p>
+                    </div>
+
+                    <div class="definition-item">
+                        <h3 class="highlight-text">Impact</h3>
+                        <p>This responsible approach reduces our carbon footprint, enhances cost-effectiveness, and allows us to offer innovative buy-back programs for our clients' surplus materials.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <footer class="main-footer">
+
+        <!-- The 4-column grid for the main content -->
+        <div class="footer-grid">
+
+            <!-- Column 1: About -->
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>As one of South Africa’s leading producers of innovative polyethylene films, we deliver exceptional quality and service to clients across the nation and around the globe.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/FlexiblePackagingSoltions" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook-icon lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="https://www.linkedin.com/company/79122902/admin/" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin-icon lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Links -->
+            <div class="footer-column footer-links">
+                <h3>Quick Links</h3>
+                <a href="privacy-policy.html" class="animated-underline">Privacy Policy</a>
+                <a href="terms-and-conditions.html" class="animated-underline">Terms of Service</a>
+            </div>
+
+            <!-- Column 3: Contact -->
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <div class="contact-item">
+                    <!-- Corrected Mail SVG -->
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+                    <a href="mailto:contact@yourwebsite.com" class="animated-underline">contact@yourwebsite.com</a>
+                </div>
+                <div class="contact-item">
+                    <!-- Corrected Phone SVG -->
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <a href="tel:+1234567890" class="animated-underline">+1 (234) 567-890</a>
+                </div>
+            </div>
+
+            <!-- Column 4: Factory Video & Address -->
+            <div class="footer-column">
+                <video src="videos/Footer Location.mp4" autoplay loop muted playsinline aria-label="A video of the factory floor."></video>
+                <p>
+                    <strong>Our Headquarters</strong><br>
+                    10 152 Nyala Rd, Canelands<br>
+                    Verulam, KwaZulu-Natal, 4341<br>
+                    South Africa
+                </p>
+            </div>
+
+        </div> <!-- End of the footer-grid -->
+
+        <!-- The bottom bar is now OUTSIDE the grid, as a direct child of the footer -->
+        <div class="footer-bottom-bar">
+            <span>© 2025 Venk-Pac Pty Ltd. All Rights Reserved.</span>
+            <span>Website by <a href="https://wearew.io" class="animated-underline">W</a></span>
+        </div>
+
+    </footer>
+    <a href="#" class="scroll-to-top" aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up-icon lucide-chevron-up">
+        <path d="m18 15-6-6-6 6"/></svg>
+    </a>
+
+<script src="js/main.js" defer></script>
+
+</body>
+</html>

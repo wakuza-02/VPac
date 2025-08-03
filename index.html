@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venk-pac</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+   <!-- ======================= HEADER (UPDATED FOR MOBILE) ======================= -->
+<header class="main-header">
+    <div class="logo">
+        <a href="index.html">
+            <!-- Make sure this path is correct -->
+            <img src="images/VP Logo.png" alt="Venkpac Logo" class="logo-image">
+            <span class="logo-text">Venk - Pac Pty Ltd</span>
+        </a>
+    </div>
+
+    <nav class="main-nav">
+        <ul>
+            <li>
+                <a href="sustainability.html" class="nav-link">
+                    <span>Green Initiatives</span>
+                </a>
+            </li>
+            <li class="has-submenu">
+                <span class="dropdown-trigger">Services</span> <!-- This is not a link, so it's excluded -->
+                <ul class="dropdown-menu">
+                    <li><a href="services-menu/extrusion.html"><span>Blown Film Extrusion</span></a></li>
+                    <li><a href="services-menu/printing.html"><span>Flexographic Printing</span></a></li>
+                    <li><a href="services-menu/lamination.html"><span>Lamination</span></a></li>
+                    <li><a href="services-menu/slitting.html"><span>Slitting & Finishing</span></a></li>
+                    <li><a href="services-menu/conversion.html"><span>Conversion</span></a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <span class="dropdown-trigger">Products</span> <!-- This is not a link, so it's excluded -->
+                <ul class="dropdown-menu">
+                    <li><a href="products/films.html"><span>Converter Films</span></a></li>
+                    <li><a href="products/nonfood.html"><span>Non Food</span></a></li>
+                    <li><a href="products/food.html"><span>Food</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="about.html" class="nav-link">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="contact.html" class="nav-link">
+                    <span>Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- This is the new Mobile "Hamburger" Button -->
+    <button class="mobile-nav-toggle" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
+
+<!-- This is the new Mobile Navigation Panel (Place it right after the header) -->
+<div class="mobile-nav-panel">
+    <div class="mobile-nav-main">
+        <ul>
+            <li><a href="sustainability.html">Green Initiatives</a></li>
+            <li class="has-submenu"><a href="#" class="mobile-submenu-trigger">Services ></a></li>
+            <li class="has-submenu"><a href="#" class="mobile-submenu-trigger">Products ></a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <!-- Submenu for Services -->
+    <div class="mobile-nav-submenu" data-submenu="Services">
+        <button class="mobile-nav-back">< Services</button>
+        <ul>
+            <li><a href="services-menu/extrusion.html">Blown Film Extrusion</a></li>
+            <li><a href="services-menu/printing.html">Flexographic Printing</a></li>
+            <li><a href="services-menu/lamination.html">Lamination</a></li>
+            <li><a href="services-menu/slitting.html">Slitting & Finishing</a></li>
+            <li><a href="services-menu/conversion.html">Conversion</a></li>
+        </ul>
+    </div>
+    <!-- Submenu for Products -->
+    <div class="mobile-nav-submenu" data-submenu="Products">
+        <button class="mobile-nav-back">< Products</button>
+        <ul>
+            <li><a href="products/films.html">Converter Films</a></li>
+            <li><a href="products/nonfood.html">Non Food</a></li>
+            <li><a href="products/food.html">Food</a></li>
+        </ul>
+    </div>
+</div>
+
+<main class="hero-section">
+    <video id="hero-video" autoplay loop muted playsinline>
+        <source src="videos/Home-hero.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</main>
+
+<section class="split-section">
+<div class="split-section-wrapper">
+    <h2 class="section-main-title">
+        Responsibly producing polyethylene packaging whilst ensuring a sustainable legacy for generations to come.
+    </h2>
+
+    <div class="split-card-container">
+        <div class="split-card-text">
+            <p class="split-section-subtitle">State of the art manufacturing:</p>
+            <ul class="capabilities-list">
+                <li>Blown Film Extrusion</li>
+                <li>Flexographic Printing</li>
+                <li>Complex Laminates</li>
+                <li>Bag Production</li>
+            </ul>
+        </div>
+        <div class="split-card-image">
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="about-section" id="more-about">
+    <div class="container about-container">
+        <!-- Left Column: Video -->
+        <div class="about-video-wrapper">
+            <img src="images/VP Logo.png" alt="Venk-Pac Logo">
+        </div>
+
+        <!-- Right Column: Content -->
+        <div class="about-content">
+            <h2>About us</h2>
+            <p>
+                Venk – Pac provides the complete plastic packaging Solutions from its Factory in South Africa. 
+                A combination of cutting edge technology, stringent quality standards and over 40 years of experience in the plastic industry, 
+                makes Venk – Pac the supplier of choice to Africa and beyond.
+            </p>
+            <p>
+                We provide a cost effective range of products which optimise the packing and distribution processes and offer effective 
+                protection as well as strong on shelf appearance across a diverse range of market segments. We are strategically located 
+                to service our the packaging needs of our Customers.
+            </p>
+            <p>
+                Venk – Pac is an ISO accredited company, 100% black owned and is BBBEE compliant.
+            </p>
+            <p>
+                Our combination of experience and technology enables us to produce the finest quality flexible product at a very 
+                competitive price. We believe we can supply your needs and provide significant cost savings to your business. 
+                We specialise in keeping our Customers updated on the developments in the flexible packaging industry, thus accessing 
+                them to innovative products whilst saving them money.
+            </p>
+            <a href="about.html" class="btn">More about us</a>
+        </div>
+    </div>
+</section>
+
+<section class="sustainability-section">
+    <video class="background-video-home" autoplay loop muted>
+        <source src="videos/ocean-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container sustainability-container">
+        <!-- Left Column: Content -->
+        <div class="sustainability-content">
+            <h2>Our Commitment to a Circular Economy</h2>
+            <p>
+                <strong>Recycling Technology: The Erema System</strong><br>
+                At the heart of our Green Initiatives program is our investment in a cutting-edge Erema degrassing recycler. 
+                This advanced technology is renowned for its ability to produce exceptionally clean and consistent recycled materials, 
+                allowing us to maintain the highest quality standards in our finished products.
+            </p>
+            <p>
+                <strong>Processing Capabilities: No Waste Left Behind</strong><br>
+                Our in-house system is engineered to handle the full spectrum of our production materials. 
+                It efficiently converts all scrap, including complex printed films, back into a valuable raw material. 
+                This closed-loop process ensures that resources are maximized and nothing is sent to landfill.
+            </p>
+            <p>
+                <strong>Shared Benefits: A Sustainable Partnership</strong><br>
+                This process is not only environmentally responsible but also economically sound. 
+                It makes our production more efficient and cost-effective, a benefit we pass on to our partners. 
+                Furthermore, we invite our clients to participate in our circular model through a buy-back program, 
+                where we purchase their surplus or redundant plastic stock, helping them meet their own sustainability goals
+                 while creating a new revenue opportunity.
+            </p>
+            <a href="sustainability.html" class="btn">Learn more</a>
+        </div>
+
+        <!-- Right Column: Graphic -->
+        <div class="sustainability-graphic">
+            <img src="images/Recycle Logo.png" alt="Product Planet People graphic">
+        </div>
+    </div>
+</section>
+
+<section class="capabilities-section">
+    <div class="container">
+        <h2 class="section-title">Our capabilities</h2>
+
+        <!-- Card 1: Blown Film Extrusion -->
+        <div class="capability-card">
+            <div class="card-image-wrapper">
+                <img src="images/extrusion-bubble.png" alt="Blown Film Extrusion machinery">
+                <h3 class="card-image-title">Blown Film Extrusion</h3>
+            </div>
+            <div class="card-text-content">
+                <p>We invest in best in class plant, production and automation technologies all to deliver consistently 
+                    high performing polyethylene films.</p>
+                <a href="services-menu/extrusion.html" class="btn">Learn more</a>
+            </div>
+        </div>
+
+        <!-- Card 2: Flexographic Printing -->
+        <div class="capability-card">
+            <div class="card-image-wrapper">
+                <img src="images/Printing-Machine.png" alt="Flexographic Printing process">
+                <h3 class="card-image-title">Flexographic Printing</h3>
+            </div>
+            <div class="card-text-content">
+                <p>We are proud to be able to print your brand. We have a vast portfolio of the latest state of the art flexo presses, 
+                    designed to print with the level of consistency and quality to give you reassurance that your brand will be consistent 
+                    on the supermarket shelf.</p>
+                <a href="services-menu/printing.html" class="btn">Learn more</a>
+            </div>
+        </div>
+        
+        <!-- Card 3: Lamination -->
+        <div class="capability-card">
+            <div class="card-image-wrapper">
+                <img src="images/Lamination Machine.png" alt="Lamination machinery">
+                <h3 class="card-image-title">Lamination</h3>
+            </div>
+            <div class="card-text-content">
+                <p>Protect your products with robust laminated films with the piece of mind that sustainability is 
+                    not being compromised with our range of mono-web, fully recyclable laminated films.</p>
+                <a href="services-menu/lamination.html" class="btn">Learn more</a>
+            </div>
+        </div>
+
+        <!-- Card 4: Slitting & Finishing -->
+        <div class="capability-card">
+            <div class="card-image-wrapper">
+                <img src="images/slitting-image.png" alt="Slitting and Finishing process">
+                <h3 class="card-image-title">Slitting & Finishing</h3>
+            </div>
+            <div class="card-text-content">
+                <p>We offer fully automated slitting to finish your reels, free any flags, scraps and yards. 
+                    We ensure each reel is supplied the same as the last with 100% inspection.</p>
+                <a href="services-menu/slitting.html" class="btn">Learn more</a>
+            </div>
+        </div>
+
+        <!-- Card 5: Conversion -->
+        <div class="capability-card">
+            <div class="card-image-wrapper">
+                <img src="images/conversion-image.png" alt="Product conversion">
+                <h3 class="card-image-title">Conversion</h3>
+            </div>
+            <div class="card-text-content">
+                <p>We have an extensive offering of bag styles and types to include:</p>
+                <ul class="conversion-features-list">
+                    <li>Heavy-Duty Sacks</li>
+                    <li>Vertical FFS Films</li>
+                    <li>Quad Seal Bags</li>
+                    <li>Mailers</li>
+                    <li>Wicketed Bags</li>
+                </ul>
+                <a href="services-menu/conversion.html" class="btn">Learn more</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="products-section" id="products">
+    <div class="container">
+        <h2 class="section-title">Our products</h2>
+
+        <div class="products-grid">
+            <!-- Product 1: Converter Films -->
+            <a href="products/films.html" class="product-card" id="converter-films">
+                <img src="images/converter-films.JPG" alt="A roll of converter film">
+                <h3 class="product-title">Converter Films</h3>
+            </a>
+
+            <!-- Product 2: Non Food -->
+            <a href="products/nonfood.html" class="product-card" id="non-food">
+                <img src="images/non-food.JPG" alt="Packaging for non-food items">
+                <h3 class="product-title">Non Food</h3>
+            </a>
+
+            <!-- Product 3: Food -->
+            <a href="products/food.html" class="product-card" id="food">
+                <img src="images/food.JPG" alt="Packaging for food products">
+                <h3 class="product-title">Food</h3>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Client Trust Section -->
+<section class="client-trust-section" id="contact">
+    <div class="container">
+        <img src="images/Factory Workers.jpg" alt="Happy clients" class="client-avatar">
+        <h2 class="section-title">Clients trust Venkpac</h2>
+        <p class="client-text">
+           At Venk-Pac, our reputation for excellence is built right here in South Africa. Our customers trust us to deliver superb products on
+            time, every time, across the nation. With deep expertise in our field and an unwavering commitment to quality, we forge lasting 
+            partnerships that ensure success. This dedication is why you’ll find Venk-Pac's trusted solutions in all aspects of everyday 
+            life throughout South Africa.
+        </p>
+        <p class="client-cta-text">
+            Interested in finding out what Venkpac can do for your business?
+        </p>
+        <a href="contact.html" class="btn btn-solid">Contact us</a>
+    </div>
+</section>
+
+    <footer class="main-footer">
+
+        <!-- The 4-column grid for the main content -->
+        <div class="footer-grid">
+
+            <!-- Column 1: About -->
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>As one of South Africa’s leading producers of innovative polyethylene films, we deliver exceptional quality and service to clients across the nation and around the globe.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/FlexiblePackagingSoltions" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook-icon lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="https://www.linkedin.com/company/79122902/admin/" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin-icon lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Links -->
+            <div class="footer-column footer-links">
+                <h3>Quick Links</h3>
+                <a href="privacy-policy.html" class="animated-underline">Privacy Policy</a>
+                <a href="terms-and-conditions.html" class="animated-underline">Terms of Service</a>
+            </div>
+
+            <!-- Column 3: Contact -->
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <div class="contact-item">
+                    <!-- Corrected Mail SVG -->
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+                    <a href="mailto:contact@yourwebsite.com" class="animated-underline">contact@yourwebsite.com</a>
+                </div>
+                <div class="contact-item">
+                    <!-- Corrected Phone SVG -->
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <a href="tel:+1234567890" class="animated-underline">+1 (234) 567-890</a>
+                </div>
+            </div>
+
+            <!-- Column 4: Factory Video & Address -->
+            <div class="footer-column">
+                <video src="videos/Footer Location.mp4" autoplay loop muted playsinline aria-label="A video of the factory floor."></video>
+                <p>
+                    <strong>Our Headquarters</strong><br>
+                    10 152 Nyala Rd, Canelands<br>
+                    Verulam, KwaZulu-Natal, 4341<br>
+                    South Africa
+                </p>
+            </div>
+
+        </div> <!-- End of the footer-grid -->
+
+        <!-- The bottom bar is now OUTSIDE the grid, as a direct child of the footer -->
+        <div class="footer-bottom-bar">
+            <span>© 2025 Venk-Pac Pty Ltd. All Rights Reserved.</span>
+            <span>Website by <a href="https://wearew.io" class="animated-underline">W</a></span>
+        </div>
+
+    </footer>
+
+    <a href="#" class="scroll-to-top" aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up-icon lucide-chevron-up">
+        <path d="m18 15-6-6-6 6"/></svg>
+    </a>
+
+<script src="js/main.js" defer></script>
+
+</body>
+</html>

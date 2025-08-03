@@ -1,0 +1,2691 @@
+/* --- General Body & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1c1c1c;
+    background-image: repeating-linear-gradient(-45deg, #1c1c1c, #1c1c1c 10px, #282828 10px, #282828 12px);
+    overflow-x: hidden; 
+}
+
+/* --- Hero Section & Video Background --- */
+.hero-section {
+    position: relative;
+    height: 80vh;
+    width: 100%;
+    overflow: hidden;
+
+    /* ADDED: These lines will perfectly center your .hero-content block */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero-video {
+    width: 100%;
+    height: 100%;
+    /* CHANGED: 'cover' prevents video distortion. 'fill' stretches it. */
+    object-fit: cover; 
+    object-position: top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* CHANGED: Set a positive z-index to start a clean stacking order */
+    z-index: 1;
+}
+
+/* This is the dark overlay */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+    /* ADDED: Places the overlay on top of the video */
+    z-index: 2; 
+}
+
+.hero-content {
+    color: white;
+    text-align: center;
+    position: relative;
+    /* CHANGED: Places the content on top of the overlay */
+    z-index: 3; 
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    font-weight: 500;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+/* --- Header & Navigation Bar --- */
+.main-header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(0 255 217 / 75%);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    z-index: 1000;
+    transition: padding 0.3s ease;
+}
+
+/* ============================================= */
+/*          Logo Styling (Image + Text)          */
+/* ============================================= */
+
+/* The main link container for the logo */
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
+/* Styles for the logo image */
+.logo-image {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+/* Styles for the logo text */
+.logo-text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* ================================================= */
+/*          CORRECTED NAVIGATION STYLES              */
+/* ================================================= */
+
+/* --- Top-Level Navigation Bar --- */
+.main-nav > ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* All list items in the nav */
+.main-nav li {
+    position: relative;
+}
+
+/* --- Navigation Links (Clickable & Non-Clickable) --- */
+.nav-link, .dropdown-trigger {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #f0f0f0;
+}
+
+.dropdown-trigger {
+    cursor: default;
+}
+
+/* --- Dropdown Menu Styling --- */
+.dropdown-menu {
+    display: none; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(25, 25, 25, 0.75);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    list-style: none;
+    padding: 15px;
+    margin-top: 0;
+    min-width: 220px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- THE HOVER ACTION --- */
+.main-nav li:hover > .dropdown-menu {
+    display: block;
+}
+
+/* --- Dropdown Menu Item Styling --- */
+.dropdown-menu li {
+    padding: 8px 0;
+}
+
+.dropdown-menu a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: block;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    color: white;
+}
+
+/* --- HIDE MOBILE-ONLY ELEMENTS ON DESKTOP --- */
+.mobile-nav-toggle {
+    display: none;
+}
+
+/* --- TABLET & MOBILE STYLES (992px and below) --- */
+@media (max-width: 992px) {
+
+    .logo-text {
+    display: none;
+    }
+
+    /* 1. HIDE the desktop nav and SHOW the mobile hamburger button */
+    .main-nav {
+        display: none;
+    }
+    .mobile-nav-toggle {
+        display: flex; /* This makes the hamburger button appear */
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001; /* Must be on top of the panel */
+    }
+    .mobile-nav-toggle span {
+        width: 100%;
+        height: 3px;
+        background: white;
+        border-radius: 10px;
+        transition: all 0.3s linear;
+    }
+    .header--light-theme .mobile-nav-toggle span {
+        background: #333;
+    }
+    
+    /* 2. Adjust header padding for smaller screens */
+    .main-header {
+        padding: 20px 30px;
+    }
+
+    .hero-graphic-content img {
+    max-width: 50%;
+    height: auto;
+    margin-left: 2rem;
+}
+
+/* --- Hero Section & Video Background --- */
+.hero-section {
+    height: 31vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: 32vh;
+    z-index: -1;
+}
+}
+
+/* ==========================================================================
+   MOBILE NAVIGATION PANEL STYLES (Corrected "Box in Corner" Version)
+   ========================================================================== */
+
+.mobile-nav-panel {
+    position: fixed; /* THIS IS THE CORRECT POSITIONING */
+    
+    /* THE FIX: Use a fixed pixel value to place it below the header.
+       Adjust 90px to perfectly match your header's height if needed. */
+    top: 90px; 
+    right: 20px; /* Aligns to the right corner */
+    
+    width: 300px;
+    max-width: calc(100vw - 40px);
+    height: auto;
+    
+    background: rgba(28, 28, 28, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    z-index: 9999; /* A very high z-index to ensure it's on top */
+    
+    /* Animation styles */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.98);
+    transform-origin: top right;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    overflow: hidden;
+}
+
+.mobile-nav-panel.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* --- Styles for the SLIDING animation --- */
+.mobile-nav-main, 
+.mobile-nav-submenu {
+    position: relative; /* Changed for better stability */
+    width: 100%;
+    transition: transform 0.4s ease-in-out;
+}
+.mobile-nav-submenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
+}
+.mobile-nav-main.slide-out {
+    transform: translateX(-100%);
+}
+.mobile-nav-submenu.is-active {
+    transform: translateX(0);
+}
+
+/* ==========================================================================
+   General Menu Link & Button Styles (Corrected)
+   ========================================================================== */
+
+/* THE FIX IS HERE: We reset the ul's padding and margin completely. */
+.mobile-nav-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Now, we apply the padding to the links THEMSELVES. */
+.mobile-nav-panel ul li a, 
+.mobile-nav-back {
+    display: block;
+    padding: 12px 20px; /* 12px top/bottom, 20px left/right */
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.mobile-nav-panel ul li a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.mobile-nav-back {
+    background: rgba(0 255 217 / 75%);
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-family: 'Poppins';
+}
+
+/* ============================================= */
+/*           Introduction Section Styles         */
+/* ============================================= */
+.intro-section {
+    color: white;
+    padding: 100px 20px;
+}
+
+.intro-section .container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.intro-section .mission-statement {
+    font-size: 2.25rem; /* 36px on desktop */
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 60px;
+}
+
+.intro-section .manufacturing-title {
+    font-size: 1.125rem; /* 18px on desktop */
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.intro-section .capabilities-list {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.intro-section .capabilities-list li {
+    font-size: 1.125rem; /* 18px on desktop */
+    margin-bottom: 12px;
+}
+
+/* --- Responsive Styles for Introduction Section --- */
+
+/* For Tablets (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    .intro-section {
+        padding: 80px 20px; /* Reduce vertical padding */
+    }
+    
+    .intro-section .mission-statement {
+        font-size: 1.8rem; /* Make the main statement smaller */
+        margin-bottom: 40px;
+    }
+
+    .intro-section .manufacturing-title,
+    .intro-section .capabilities-list li {
+        font-size: 1rem; /* Adjust list item font size */
+    }
+}
+
+/* For Mobile Phones (e.g., screen widths 600px and below) */
+@media (max-width: 600px) {
+    .intro-section {
+        padding: 60px 20px; /* Further reduce padding for small screens */
+    }
+    
+    .intro-section .mission-statement {
+        font-size: 1.5rem; /* Make the main statement even smaller */
+        margin-bottom: 30px;
+    }
+}
+
+/* ============================================= */
+/*             About Us Section Styles           */
+/* ============================================= */
+
+/* --- Default Desktop Styles --- */
+section.about-section {
+    padding: 120px 20px;
+}
+
+section.about-section .about-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section.about-section .about-video-wrapper {
+    flex: 1;
+    min-width: 0;
+}
+
+section.about-section .about-video-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+section.about-section .about-content {
+    flex: 1;
+    color: white;
+}
+
+section.about-section .about-content h2 {
+    font-size: 3.5rem; /* 56px on desktop */
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+section.about-section .about-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+/* --- Responsive Styles for About Us Section --- */
+
+/* For Tablets (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    section.about-section {
+        padding: 80px 20px; /* Reduce vertical padding */
+    }
+
+    /* Stack the columns vertically */
+    section.about-section .about-container {
+        flex-direction: column;
+        gap: 40px; /* Adjust the gap for a stacked layout */
+        text-align: center; /* Center the text now that it's stacked */
+    }
+
+    section.about-section .about-video-wrapper {
+        margin-bottom: 20px; /* Add some space below the image */
+    }
+
+    section.about-section .about-content h2 {
+        font-size: 2.5rem; /* Reduce heading size for tablets */
+    }
+}
+
+/* For Mobile Phones (e.g., screen widths 600px and below) */
+@media (max-width: 600px) {
+    section.about-section {
+        padding: 60px 20px; /* Further reduce padding */
+    }
+    
+    section.about-section .about-content h2 {
+        font-size: 2rem; /* Make heading even smaller for phones */
+    }
+
+    section.about-section .about-content p {
+        font-size: 0.9rem; /* Slightly smaller body text for readability */
+    }
+}
+
+/* ============================================= */
+/*           Button Styling (Corrected)          */
+/* ============================================= */
+
+/* --- Default Desktop Styles --- */
+.btn {
+    background: transparent;
+    font-family: inherit;
+    font-size: 1rem; /* 16px on desktop */
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 40px; /* Desktop padding */
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Default hover effect (for dark backgrounds) */
+.btn:hover {
+    background-color: #00FFD9BF;
+    color: white;
+}
+
+/* --- Modifier for Dark Outlines --- */
+.btn--dark-outline {
+    color: #333;
+    border-color: #333;
+}
+
+.btn--dark-outline:hover {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+}
+
+/* --- Responsive Styles for Buttons --- */
+
+/* For Tablets & Mobile Phones (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    .btn {
+        /* Reduce padding to make the button slightly smaller */
+        padding: 10px 32px;
+        /* Reduce font size slightly */
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================= */
+/*          Sustainability Section Styles        */
+/* ============================================= */
+
+/* --- Default Desktop Styles --- */
+.sustainability-section {
+    position: relative;
+    padding: 120px 20px;
+    color: white;
+    overflow: hidden;
+}
+
+.sustainability-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 40, 50, 0.6);
+    z-index: 2;
+}
+
+.background-video,
+.hero-background-image, 
+.background-video-home {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.sustainability-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.sustainability-content {
+    flex: 1.5;
+    min-width: 0;
+}
+
+.sustainability-content h2 {
+    font-size: 3.5rem; /* 56px on desktop */
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 35px;
+}
+
+.sustainability-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+.sustainability-graphic {
+    flex: 1;
+    text-align: center;
+}
+
+.sustainability-graphic img {
+    max-width: 100%;
+    height: auto;
+}
+
+.ppage-content-section-sustainability {
+    padding: 100px 0;
+}
+
+/* --- Responsive Styles for Sustainability Section --- */
+
+/* For Tablets (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    .sustainability-section {
+        padding: 80px 20px; /* Reduce padding */
+    }
+
+    /* Stack the columns vertically */
+    .sustainability-container {
+        flex-direction: column-reverse;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .sustainability-content h2 {
+        font-size: 2.5rem; /* Reduce heading size */
+    }
+
+    .sustainability-graphic {
+        margin-top: 20px; /* Add some space above the graphic */
+    }
+
+    .sustainability-graphic img {
+        max-width: 250px; /* Constrain the graphic size on mobile */
+    }
+}
+
+/* For Mobile Phones (e.g., screen widths 600px and below) */
+@media (max-width: 600px) {
+    .sustainability-section {
+        padding: 60px 20px; /* Further reduce padding */
+    }
+    
+    .sustainability-content h2 {
+        font-size: 2rem; /* Make heading even smaller */
+    }
+
+    .background-video,
+    .hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 31vh;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.background-video-home{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+}
+
+/* ============================================= */
+/*         Our Capabilities Section Styles       */
+/* ============================================= */
+
+/* --- Default Desktop Styles --- */
+.capabilities-section {
+    padding: 120px 20px;
+    color: white;
+}
+
+.capabilities-section .section-title {
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.capability-card {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 100px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.capability-card:nth-child(even) {
+    flex-direction: row-reverse; /* Alternating layout for desktop */
+}
+
+.card-image-wrapper {
+    flex: 1.2;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%);
+    z-index: 1;
+}
+
+.card-image-title {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    font-size: 2.25rem;
+    font-weight: 500;
+    color: white;
+    z-index: 2;
+}
+
+.card-text-content {
+    flex: 1;
+}
+
+.card-text-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+}
+
+.conversion-features-list {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.conversion-features-list li {
+    font-size: 1rem;
+    color: #e0e0e0;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+/* --- Responsive Styles for Capabilities Section --- */
+
+/* For Tablets & Mobile Phones (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    .capabilities-section {
+        padding: 80px 20px;
+    }
+
+    .capabilities-section .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+    }
+
+    /* Stack the columns vertically */
+    .capability-card {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+
+    /* IMPORTANT: Disable the alternating effect on mobile */
+    .capability-card:nth-child(even) {
+        flex-direction: column;
+    }
+    
+    .card-text-content {
+        /* Add some padding to the text content when stacked */
+        padding: 0 10px;
+    }
+
+    .card-image-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* ============================================= */
+/*             Our Products Section Styles       */
+/* ============================================= */
+
+/* --- Default Desktop Styles --- */
+.products-section {
+    padding: 120px 20px;
+    color: white;
+}
+
+.product-card {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+.product-card:hover::before {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 60%);
+}
+
+.product-title {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 1.5rem; /* 24px on desktop */
+    font-weight: 500;
+    color: white;
+    z-index: 2;
+}
+
+/* --- Responsive Styles for Products Section --- */
+
+/* For Tablets (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    .products-section {
+        padding: 80px 20px; /* Reduce vertical padding */
+    }
+
+    .product-title {
+        font-size: 1.25rem; /* Reduce title font size */
+        bottom: 15px;
+        left: 15px;
+    }
+}
+
+/* For Mobile Phones (e.g., screen widths 600px and below) */
+@media (max-width: 600px) {
+    .products-section {
+        padding: 60px 20px; /* Further reduce padding */
+    }
+}
+
+/* ============================================= */
+/*             Our Products Section Styles       */
+/* ============================================= */
+
+/* --- Default Desktop Styles --- */
+.products-section {
+    padding: 120px 20px;
+    color: white;
+    text-align: center;
+}
+
+.section-title {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align:center;
+}
+
+.product-card {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+.product-card:hover::before {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 60%);
+}
+
+.product-title {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 1.5rem; /* 24px on desktop */
+    font-weight: 500;
+    color: white;
+    z-index: 2;
+}
+
+/* --- Responsive Styles for Products Section --- */
+
+/* For Tablets (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    .products-section {
+        padding: 80px 20px; /* Reduce vertical padding */
+    }
+
+    .product-title {
+        font-size: 1.25rem; /* Reduce title font size */
+        bottom: 15px;
+        left: 15px;
+    }
+}
+
+/* For Mobile Phones (e.g., screen widths 600px and below) */
+@media (max-width: 600px) {
+    .products-section {
+        padding: 60px 20px; /* Further reduce padding */
+    }
+}
+
+/* ============================================= */
+/*           Main Footer Section Styles          */
+/* ============================================= */
+
+.main-footer {
+    padding: 80px 20px 40px;
+    background-color: #333; /* Your screenshot shows a dark grey, #333 is a good choice */
+    color: white;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-column p {
+    margin-bottom: 15px;
+}
+
+.footer-column img, 
+.footer-column video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 25px;
+    border-radius: 8px;
+}
+
+/* --- Universal Link Styling --- */
+.footer-column a,
+.footer-bottom-bar a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover,
+.footer-bottom-bar a:hover {
+    color: rgba(0, 255, 217, 0.75); /* Your accent color */
+}
+
+
+/* =======================================================
+   Reusable Underline Animation
+   ======================================================= */
+
+a.animated-underline {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px; /* Creates space for the underline */
+}
+
+a.animated-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 255, 217, 0.75);
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+a.animated-underline:hover::after {
+    transform: scaleX(1);
+}
+
+.footer-links a.animated-underline {
+    display: block;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+
+/* ===================================
+   Footer Social & Contact Icons
+   =================================== */
+
+.footer-social {
+    display: flex;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.footer-social a svg {
+    display: block;
+    height: 28px;
+    width: 28px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.contact-item .contact-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* ===================================
+   Footer Bottom Bar (Final)
+   =================================== */
+
+.footer-bottom-bar {
+    max-width: 1200px;
+    margin: 60px auto 0 auto; /* Adds space above and centers the bar */
+    padding-top: 30px;
+    border-top: 1px solid #555;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.8rem;
+}
+
+.footer-bottom-bar > span {
+    white-space: nowrap; /* Prevents text from breaking onto new lines */
+}
+
+
+/* ===================================
+   Responsive Styles
+   =================================== */
+
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .main-footer {
+        padding: 60px 20px 30px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .footer-column img,
+    .footer-column video {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer-links a.animated-underline {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer-social,
+    .contact-item {
+        justify-content: center;
+    }
+
+    .footer-bottom-bar {
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+/* ================================================= */
+/*          Animated Underline Hover Effect          */
+/* ================================================= */
+
+/* Keep the base link styling for spacing, color, etc. */
+.nav-link,
+.dropdown-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+}
+
+/* The span remains the anchor for the pseudo-element */
+.nav-link span,
+.dropdown-menu a span {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* 3. The underline pseudo-element, now using transform */
+.nav-link span::after,
+.dropdown-menu a span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0 255 217 / 75%);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* 4. On hover, we scale it up and change the origin */
+.nav-link:hover span::after,
+.dropdown-menu a:hover span::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* ============================================= */
+/*       About Page Main Content Styles          */
+/* ============================================= */
+
+/* --- Default Desktop Styles --- */
+.about-page-content {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.two-column-layout {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin: 100px 0;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-column {
+    flex: 1.2;
+}
+
+.text-column h3 {
+    font-size: 1.8rem; /* 28.8px on desktop */
+    line-height: 1.4;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.text-column p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.video-column {
+    flex: 1;
+}
+
+.video-column video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* --- Responsive Styles for About Page Content --- */
+
+/* For Tablets (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    .about-page-content {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    /* Stack the columns vertically */
+    .two-column-layout {
+        flex-direction: column;
+        gap: 40px;
+        margin: 60px 0;
+    }
+    
+    .text-column {
+        /* Change the flex order to put the text first on mobile */
+        order: 2;
+        text-align: center;
+    }
+
+    .video-column {
+        order: 1;
+    }
+
+    .text-column h3 {
+        font-size: 1.5rem; /* Reduce heading size */
+    }
+}
+
+/* For Mobile Phones (e.g., screen widths 600px and below) */
+@media (max-width: 600px) {
+    .about-page-content {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .two-column-layout {
+        margin: 40px 0;
+    }
+
+    .text-column h3 {
+        font-size: 1.3rem; /* Further reduce heading size */
+    }
+
+    .text-column p {
+        font-size: 0.9rem; /* Slightly smaller body text */
+    }
+}
+
+/* ============================================= */
+/*          Hero Layout Variations               */
+/* ============================================= */
+
+/* --- Default Desktop Styles --- */
+.hero-bottom-left {
+    justify-content: flex-start;
+    align-items: flex-end;
+    display: grid;
+}
+
+.hero-bottom-left .hero-content {
+    text-align: left;
+    padding: 80px;
+}
+
+.hero-bottom-left .hero-content h1 {
+    font-size: 6rem; /* 96px on desktop */
+    line-height: 1.1;
+}
+
+/* --- Shared Grid Styles --- */
+.products-grid,
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Responsive Styles for this Section --- */
+
+/* For Tablets (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    .hero-bottom-left .hero-content {
+        padding: 60px; /* Reduce padding */
+    }
+
+    .hero-bottom-left .hero-content h1 {
+        font-size: 4.5rem; /* Reduce font size for tablets */
+    }
+}
+
+/* For Mobile Phones (e.g., screen widths 600px and below) */
+@media (max-width: 600px) {
+    .hero-bottom-left .hero-content {
+        padding: 40px; /* Further reduce padding */
+    }
+
+    .hero-bottom-left .hero-content h1 {
+        font-size: 1.5rem; /* Make heading much smaller for phones */
+    }
+
+    /* Adjust the gap between grid items on mobile */
+    .products-grid,
+    .capabilities-grid {
+        gap: 20px;
+    }
+}
+
+/* ============================================= */
+/*       Sustainability Page Hero Styles         */
+/* ============================================= */
+
+.sustainability-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 40, 50, 0.6);
+    z-index: 2;
+}
+
+.sustainability-hero-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* Sits on top of the background video */
+    z-index: 3;
+}
+
+.hero-text-content {
+    flex: 1.5; /* Give the text more space */
+    min-width: 0;
+}
+
+.hero-text-content h1 {
+    font-size: 2rem;
+    line-height: 0.2;
+    font-weight: 500;
+    color: #0bcf00;
+    margin-left: 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #e0e0e0;
+    margin-top: 15px;
+}
+
+.hero-graphic-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.hero-graphic-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ============================================= */
+/*       Sustainability "Three Ps" Section       */
+/* ============================================= */
+
+/* --- Default Desktop Styles --- */
+.three-ps-section {
+    position: relative;
+    padding: 120px 20px;
+    color: white;
+    background-image: url('../images/environment.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect for desktop */
+}
+
+.three-ps-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.three-ps-section .text-container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* --- CONSOLIDATED TEXT STYLES --- */
+/* These are the single source of truth for the text in this section. */
+.three-ps-section .section-lead-text {
+    font-size: 2.25rem; /* 36px on desktop */
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 80px;
+}
+
+.three-ps-section .definition-item {
+    margin-bottom: 40px;
+}
+
+.three-ps-section .definition-item h3 {
+    font-size: 2rem; /* 32px on desktop */
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.three-ps-section .highlight-text {
+    color: #0bcf00; /* Main highlight color */
+}
+
+.three-ps-section .definition-item p {
+    font-size: 1.25rem;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+
+/* --- Responsive Styles for "Three Ps" Section --- */
+
+/* For Tablets (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    .three-ps-section {
+        padding: 80px 20px;
+        background-attachment: scroll; /* Disable parallax on mobile for better performance */
+    }
+
+    .three-ps-section .section-lead-text {
+        font-size: 1.8rem;
+        margin-bottom: 60px;
+    }
+    
+    .three-ps-section .definition-item h3 {
+        font-size: 1.75rem;
+    }
+    
+    .three-ps-section .definition-item p {
+        font-size: 1.1rem;
+    }
+}
+
+/* For Mobile Phones (e.g., screen widths 600px and below) */
+@media (max-width: 600px) {
+    .three-ps-section {
+        padding: 60px 20px;
+    }
+    
+    .three-ps-section .section-lead-text {
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+    }
+
+    .three-ps-section .definition-item h3 {
+        font-size: 1.5rem;
+    }
+
+    .three-ps-section .definition-item p {
+        font-size: 1rem;
+    }
+}
+
+/* ============================================= */
+/*    Sustainability Page - Detailed Section     */
+/* ============================================= */
+
+/* --- Default Desktop Styles --- */
+.detailed-sustainability-section {
+    padding: 100px 20px;
+}
+
+.detailed-sustainability-section .two-column-layout {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.detailed-sustainability-section .text-column {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.detailed-sustainability-section .image-column {
+    flex: 0 0 450px;
+    position: relative;
+    z-index: 1;
+    margin-left: -120px; /* Overlap effect for desktop */
+}
+
+.section-heading {
+    color: white;
+    font-size: 2.5rem; /* 40px on desktop */
+    line-height: 1.4;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.detailed-sustainability-section .text-column p {
+    color: #e0e0e0;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.detailed-sustainability-section .text-column .styled-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 20px 0;
+    color: white;
+}
+
+.detailed-sustainability-section .text-column .styled-list li {
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.detailed-sustainability-section .image-column img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.feature-card-image-sustainability{
+    width: 100%;
+    height: 100vh;
+    display: block;
+}
+
+.section-lead-text{
+    color: #e0e0e0;
+    line-height: 1.2;
+    margin-bottom: 60px;
+    font-size: 1.5rem;
+}
+
+.highlight-text {
+    color:#0bcf00;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    font-size: 2rem;
+}
+
+.definition-item p{
+    color:white;
+    font-size: 1rem;
+}
+
+/* --- Responsive Styles for Detailed Sustainability Section --- */
+
+/* For Tablets (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    .detailed-sustainability-section {
+        padding: 80px 20px;
+    }
+    
+    /* Stack the columns vertically */
+    .detailed-sustainability-section .two-column-layout {
+        flex-direction: column;
+    }
+    
+    /* Reset the image column styles */
+    .detailed-sustainability-section .image-column {
+        flex-basis: auto; /* Let the image size itself */
+        width: 100%;
+        margin-left: 0; /* REMOVE the overlap effect */
+        order: 1; /* Show the image first */
+    }
+    
+    .detailed-sustainability-section .text-column {
+        order: 2; /* Show the text second */
+        margin-top: 40px; /* Add space between image and text */
+    }
+
+    .section-heading {
+        font-size: 2rem; /* Reduce heading size */
+    }
+
+    .feature-card-image-sustainability{
+        width: auto;
+        height: 100vh;
+        display: block;
+}
+
+.section-lead-text{
+        color: #e0e0e0;
+        line-height: 1.2;
+        margin-bottom: 6px;
+        font-size: 0.8rem;
+}
+
+.highlight-text {
+    color: #0bcf00;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    font-size: 1rem;
+}
+
+.definition-item p{
+    color: white;
+    font-size: 0.65rem;
+}
+}
+
+/* For Mobile Phones (e.g., screen widths 600px and below) */
+@media (max-width: 600px) {
+    .detailed-sustainability-section {
+        padding: 60px 20px;
+    }
+
+    .section-heading {
+        font-size: 1.5rem;
+    }
+
+    .detailed-sustainability-section .text-column p,
+    .detailed-sustainability-section .text-column .styled-list li {
+        font-size: 0.9rem; /* Slightly smaller body text */
+    }
+
+    .hero-text-content h1 {
+    font-size: 2rem;
+    line-height: 0.2;
+    font-weight: 500;
+    color: #0bcf00;
+    margin-left: 0.5rem;
+    }
+
+    .hero-subtitle {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #e0e0e0;
+    margin-top: 15px;
+    margin-left: 10px;
+    }
+
+    .hero-graphic-content img {
+    max-width: 65%;
+    height: auto;
+    margin-top: 80px;
+    }
+}
+
+/* ============================================= */
+/*       Extrusion Page & Slider Styles          */
+/* ============================================= */
+
+/* --- Default Desktop Styles --- */
+
+/* Small text above the main hero title */
+.hero-breadcrumb {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    color: #e0e0e0;
+}
+
+.page-content-section {
+    padding: 100px;
+}
+
+.page-content-section .container {
+    padding: 0 20px;
+}
+
+/* --- Slider Styles --- */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 100px;
+    border-radius: 8px;
+    max-width: 1300px; /* Constrain and center the slider */
+    margin-left: auto;
+    margin-right: auto;
+}
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.slide {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+.slide img {
+    width: 100%;
+    display: block;
+}
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(28, 28, 28, 0.7);
+    color: rgb(0 255 217);
+    border: none;
+    font-size: 2rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 20%;
+    width: 7vh;
+    border-radius: 50px;
+}
+.slider-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.slider-prev { left: 10px; }
+.slider-next { right: 10px; }
+
+
+/* --- Feature Section (Image with Text Overlay) --- */
+.feature-image-container {
+    position: relative;
+    border-radius: 8px; /* Add radius to the container */
+    overflow: hidden; /* Clip the corners of the children */
+}
+.feature-background-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.feature-text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    padding: 60px;
+    color: white;
+    background-color: rgba(28, 28, 28, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.feature-list li {
+    font-size: 2.25rem; /* 36px on desktop */
+    font-weight: 700;
+    line-height: 1.6;
+    color: white;
+}
+.feature-text-overlay p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+}
+.benefits-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 15px 0;
+    text-align: left;
+}
+.benefits-list li {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: white;
+}
+.text-link {
+    color: white;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-size: 0.9rem;
+    align-self: flex-start;
+}
+.text-link:hover {
+    color: rgba(0 255 217 / 75%);
+}
+
+
+/* --- Responsive Styles for Extrusion Page --- */
+
+/* For Tablets (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    .page-content-section {
+        padding: 80px 0;
+    }
+    
+    .slider-container {
+        margin-bottom: 60px;
+    }
+
+    /* Stack the text overlay below the image */
+    .feature-text-overlay {
+        position: relative; /* Un-stick the overlay */
+        width: 100%;
+        height: auto;
+        border-radius: 0 0 8px 8px; /* Round the bottom corners */
+        padding: 40px;
+    }
+
+    .feature-list li {
+        font-size: 1.8rem; /* Reduce heading size */
+    }
+}
+
+/* For Mobile Phones (e.g., screen widths 600px and below) */
+@media (max-width: 600px) {
+    .page-content-section {
+        padding: 0px 0;
+    }
+
+    .slider-button {
+        font-size: 1.5rem; /* Make slider buttons smaller */
+        padding: 8px 12px;
+    }
+
+    .feature-list li {
+        font-size: 1.5rem; /* Further reduce heading size */
+    }
+}
+
+/* =a=========================================== */
+/*       Feature Section - Bottom Text Modifier  */
+/* ============================================= */
+
+/* --- Default Desktop Styles --- */
+.feature-image-container--bottom .feature-text-overlay {
+    /* Override the original position */
+    top: auto;
+    bottom: 0;
+    
+    /* Override the original size */
+    width: 100%;
+    height: auto;
+    
+    /* Override the original border-radius */
+    border-radius: 0 0 8px 8px;
+}
+
+
+/* --- Responsive Styles for this Modifier --- */
+
+/* For Tablets (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    /* Adjust padding for the text overlay on smaller screens */
+    .feature-image-container--bottom .feature-text-overlay {
+        padding: 40px; /* Reduce padding from the default 60px */
+    }
+}
+
+/* For Mobile Phones (e.g., screen widths 600px and below) */
+@media (max-width: 600px) {
+    .feature-image-container--bottom .feature-text-overlay {
+        padding: 30px; /* Further reduce padding for small screens */
+    }
+}
+
+/* ============================================= */
+/*      Combined Intro & Slider Section Styles   */
+/* ============================================= */
+
+/* --- Your Existing Desktop Styles (Unchanged) --- */
+.intro-slider-section {
+    padding: 100px 20px;
+    color: white;
+}
+
+.intro-slider-grid {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 0px 20px;
+}
+
+.intro-text-column {
+    flex: 1.2;
+    min-width: 0;
+}
+
+.intro-slider-column {
+    flex: 1;
+    min-width: 0;
+}
+
+.intro-text-column .page-intro-text {
+    text-align: left;
+    margin: 0;
+    max-width: none;
+    font-size: 1.8rem; /* 28.8px on desktop */
+    line-height: 1.7;
+}
+
+.intro-slider-column .slider-container {
+    margin-bottom: 0;
+}
+
+.feature-card {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.feature-card-image {
+    width: auto;
+    height: 100vh;
+    display: block;
+}
+
+.feature-card-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    max-width: 700px;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    background-color: rgba(28, 28, 28, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+/* --- Responsive Styles for this Section --- */
+
+/* For Tablets & Mobile Phones (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    .intro-slider-section {
+        padding: 80px 20px; /* Reduce padding */
+    }
+
+    /* Stack the columns vertically */
+    .intro-slider-grid {
+        flex-direction: column;
+        gap: 40px; /* Adjust gap for vertical stacking */
+    }
+
+    /* Adjust the text to be centered when stacked */
+    .intro-text-column .page-intro-text {
+        text-align: center;
+        font-size: 1.5rem; /* Reduce font size */
+    }
+
+    .feature-card-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-width: 700px;
+        height: 100%;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        background-color: rgba(28, 28, 28, 43%);
+        backdrop-filter: blur(2px);
+        font-size: 0.5rem;
+        text-align: center;
+}
+}
+
+/* For Mobile Phones (e.g., screen widths 600px and below) */
+@media (max-width: 600px) {
+    .intro-slider-section {
+        padding: 60px 20px; /* Further reduce padding */
+    }
+
+    .intro-text-column .page-intro-text {
+        font-size: 0.8rem; /* Make font even smaller for phones */
+    }
+}
+
+/* ============================================= */
+/*       Product Page - Film Grid Styles         */
+/* ============================================= */
+
+/* --- Your Existing Desktop Styles (Unchanged) --- */
+.film-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.film-card {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.film-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.film-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.film-card-content {
+    padding: 25px;
+    color: #e0e0e0;
+    flex-grow: 1;
+}
+
+.film-card-content h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.film-card-content p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.feature-card-text p1{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.page-intro-text {
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* --- Responsive Styles for this Section --- */
+
+/* For Mobile Phones (e.g., screen widths 600px and below) */
+@media (max-width: 600px) {
+    .film-grid {
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .film-card-content {
+        padding: 20px; /* Reduce the padding inside the card */
+    }
+    
+    .film-card-content h3 {
+        font-size: 1.1rem; /* Make the card title slightly smaller */
+    }
+
+    .feature-card-text p1{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    }
+
+    .feature-card-text p2{
+        color: white;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .feature-card-text p3{
+        color:white;
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .page-intro-text {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .feature-background-image-1 {
+        width: auto;
+        height: 100%;
+    }
+}
+
+/* ============================================= */
+/*       Light Theme Header (for Contact Page)   */
+/* ============================================= */
+/* This modifier class makes the header light */
+.main-header.header--light-theme {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Add a subtle shadow */
+    backdrop-filter: none; /* Turn off the blur for the light theme */
+}
+.header--light-theme .logo-text,
+.header--light-theme .nav-link,
+.header--light-theme .dropdown-trigger {
+    color: #333; /* Dark text */
+}
+/* Make the animated underline dark as well */
+.header--light-theme .nav-link::after,
+.header--light-theme .dropdown-menu a::after {
+    background-color: #333;
+}
+
+/* ============================================= */
+/*       Detailed Contact Page Section Styles    */
+/* ============================================= */
+
+/* --- Your Existing Desktop Styles (Unchanged) --- */
+.contact-section-detailed {
+    padding: 100px 20px;
+}
+
+.contact-panel {
+    background-color: white;
+    color: #333;
+    padding: 60px;
+    border-radius: 8px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.contact-section-detailed .two-column-layout {
+    gap: 80px;
+    align-items: flex-start;
+    display: flex; /* Ensure flex is explicitly set */
+}
+
+.contact-details-column {
+    flex: 1;
+}
+
+.contact-form-column {
+    align-self: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 7px;
+    padding: 30px;
+}
+
+.contact-details-column h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.contact-details-column p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.map-container {
+    width: 100%;
+    height: 300px;
+    margin: 30px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+}
+
+.map-container iframe { width: 100%; height: 100%; }
+
+.contact-details-column h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.contact-details-column a {
+    color: white;
+    text-decoration: underline;
+}
+
+.contact-form-detailed .form-group { margin-bottom: 20px; }
+
+.contact-form-detailed label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.contact-form-detailed .form-group > label,
+.contact-form-detailed legend {
+    font-weight: 700;
+    color: white;
+}
+
+.contact-form-detailed input[type="text"],
+.contact-form-detailed input[type="tel"],
+.contact-form-detailed input[type="email"],
+.contact-form-detailed textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(0 255 217 / 75%);
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: white;
+    border-radius: 5px;
+}
+
+.split-group { display: flex; gap: 20px; }
+.split-group .input-wrapper { flex: 1; }
+.split-group .input-wrapper label {
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+fieldset { border: none; padding: 0; }
+.legend-subtitle {
+    font-size: 0.9rem;
+    color: rgba(0 255 217 / 75%);
+    margin-bottom: 15px;
+}
+.radio-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.radio-option input[type="radio"] { margin-right: 10px; }
+.radio-option label {
+    margin-bottom: 0;
+    font-weight: 400;
+    color: white;
+}
+
+/* --- Responsive Styles for this Section --- */
+
+/* For Tablets & Mobile Phones (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    /* Stack the columns vertically */
+    .contact-section-detailed .two-column-layout {
+        flex-direction: column;
+        gap: 60px; /* Adjust gap for vertical stacking */
+    }
+
+    .contact-panel {
+        padding: 40px; /* Reduce the panel padding */
+    }
+
+    .contact-details-column{
+        align-self: center;
+    }
+}
+
+/* For Mobile Phones (e.g., screen widths 600px and below) */
+@media (max-width: 600px) {
+    .contact-section-detailed {
+        padding: 60px 15px; /* Reduce section padding */
+    }
+    .contact-panel {
+        padding: 25px; /* Further reduce panel padding */
+    }
+
+    /* Stack the First Name / Last Name fields */
+    .split-group {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact-details-column h2 {
+        font-size: 2rem; /* Reduce heading size */
+    }
+
+    .contact-details-column{
+        align-self: center;
+    }
+}
+
+/* ============================================= */
+/*          Client Trust Section Styles          */
+/* ============================================= */
+
+/* --- Default Desktop Styles --- */
+.client-trust-section {
+    padding: 120px 20px;
+    background: radial-gradient(ellipse at center, #4a4a4a, #1c1c1c);
+    color: white;
+    text-align: center;
+}
+
+.client-trust-section .container {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.client-avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 30px;
+}
+
+.client-trust-section .section-title {
+    margin-bottom: 30px;
+}
+
+.client-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+}
+
+.client-cta-text {
+    font-size: 1.1rem; /* Made it slightly larger */
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.btn-solid {
+    background-color: white;
+    color: #333;
+    border-color: white;
+}
+
+.btn-solid:hover {
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+    color: #333;
+}
+
+
+/* --- Responsive Styles for Client Trust Section --- */
+
+/* For Tablets (e.g., screen widths 900px and below) */
+@media (max-width: 900px) {
+    .client-trust-section {
+        padding: 80px 20px;
+    }
+}
+
+/* For Mobile Phones (e.g., screen widths 600px and below) */
+@media (max-width: 600px) {
+    .client-trust-section {
+        padding: 60px 20px;
+        margin-top: 30px;
+    }
+
+    .client-avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .client-text {
+        font-size: 0.9rem;
+    }
+
+    .client-cta-text {
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================================================
+   8. SCROLL TO TOP BUTTON
+   ========================================================================== */
+
+.scroll-to-top {
+    /* --- Visibility: Hide on desktop, show on mobile/tablet --- */
+    display: none; /* Hidden by default on large screens */
+
+    /* --- Positioning --- */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    
+    /* --- Styling --- */
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0 255 217 / 75%); /* Matches your header color */
+    color: white;
+    border: none;
+    border-radius: 50%; /* Makes it a circle */
+    text-decoration: none;
+    font-size: 24px;
+    
+    /* --- Centering the Arrow --- */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* --- Animation Properties --- */
+    opacity: 0; /* Start invisible */
+    visibility: hidden;
+    transform: translateY(20px); /* Start slightly lower */
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.scroll-to-top:hover {
+    background-color: rgba(0 255 217 / 95%); /* Slightly more opaque on hover */
+}
+
+/* This class will be added by JavaScript to show the button */
+.scroll-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* --- Media Query to show the button on smaller screens --- */
+@media (max-width: 992px) {
+    .scroll-to-top {
+        display: flex; /* Show the button on tablets and mobile */
+    }
+}
+
+/* --- Section Wrapper with Diagonal Pattern --- */
+.split-section-wrapper {
+    padding: 4rem 1rem;
+}
+
+/* --- The Main Title (Above the Card) --- */
+.section-main-title {
+    text-align: center;
+    color: white;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    transition: font-size 0.2s ease, margin-bottom 0.2s ease;
+}
+
+/* --- The Card Container --- */
+.split-card-container {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    /* IMPORTANT: Replace with your actual image path */
+    background-image: url('../images/Printing-Machine.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* --- Left Column: Blurred Glass Effect --- */
+.split-card-text {
+    flex-basis: 50%;
+    padding: 6rem;
+    background-color: rgba(28, 28, 28, 0.5);
+    backdrop-filter: blur(16px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transition: flex-basis 0.2s ease, padding 0.2s ease;
+    height: 50vh;
+}
+    
+.split-section-subtitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #e0e0e0;
+    margin-bottom: 1rem;
+    transition: font-size 0.2s ease;
+}
+
+/* --- Right Column: Image Area --- */
+.split-card-image {
+    flex-basis: 50%;
+    transition: flex-basis 0.2s ease;
+}
+
+.capabilities-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.capabilities-list li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.2rem;
+    position: relative;
+    color: white;
+}
+
+.capabilities-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #00d1b2;
+    font-weight: bold;
+}
+
+/* --- UPDATED MEDIA QUERIES --- */
+
+/* For Tablet Screens (e.g., <= 900px) */
+@media (max-width: 900px) {
+    .section-main-title {
+        font-size: 1.8rem; /* Smaller title */
+        margin-bottom: 2rem;
+    }
+    .split-card-text {
+        flex-basis: 50%; /* Text column gets more space */
+        padding: 2.5rem; /* Reduced padding */
+    }
+    .split-card-image {
+        flex-basis: 50%; /* Image column gets less space */
+    }
+}
+
+/* For Mobile Screens (e.g., <= 600px) */
+@media (max-width: 600px) {
+    .split-section-wrapper {
+         padding: 3rem 1rem;
+    }
+    .section-main-title {
+        font-size: 1.5rem; /* Even smaller title */
+    }
+    .split-card-text {
+        padding: 2rem; /* Further reduced padding */
+    }
+    .split-section-subtitle {
+        font-size: 1rem; /* Smaller text content */
+    }
+    /* This rule assumes you have a capabilities-list class from previous examples */
+    .capabilities-list li {
+        font-size: 1rem;
+    }
+}
+
+/* ===================================
+   Legal Pages (Privacy & Terms) - UPDATED
+   =================================== */
+
+.legal-content-page {
+    padding: 100px; /* Adds space above and below the text */
+    background-color: #e9e9e9; /* A light background to separate from the white footer */
+}
+
+.legal-content-page .container {
+    max-width: 800px; /* Constrain line length for better readability */
+}
+
+.legal-content-page h1 {
+    font-size: 2.5rem; /* 40px */
+    color: #002D62; /* Primary dark blue for headings */
+    margin-bottom: 0.5em;
+    /* UPDATED: Using your new accent color for the border */
+    border-bottom: 3px solid rgba(0, 255, 217, 0.75);
+    padding-bottom: 0.5rem;
+}
+
+.legal-content-page h2 {
+    font-size: 1.75rem; /* 28px */
+    color: #002D62;
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+}
+
+.legal-content-page h3 {
+    font-size: 1.25rem; /* 20px */
+    color: #333;
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+}
+
+.legal-content-page p,
+.legal-content-page li {
+    font-size: 1rem; /* 16px */
+    line-height: 1.8; /* Increased for better readability of text blocks */
+    color: #555;
+    margin-bottom: 1em;
+}
+
+.legal-content-page ul {
+    list-style-type: disc;
+    padding-left: 25px; /* Standard indentation for lists */
+}
+
+.legal-content-page ul ul {
+    list-style-type: circle; /* For nested lists if you ever need them */
+}
+
+.legal-content-page a {
+    /* UPDATED: Using your new accent color for links */
+    color: rgba(0, 255, 217, 0.75);
+    text-decoration: none; /* Removing underline for a cleaner look */
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.legal-content-page a:hover {
+    color: #002D62; /* Hover changes to the primary brand color */
+}
+
+.legal-content-page .effective-date {
+    font-style: italic;
+    color: #777;
+    margin-top: -1rem;
+    margin-bottom: 2.5rem;
+}
+
+/* ===================================
+   MEDIA QUERIES for Legal Pages
+   =================================== */
+
+@media (max-width: 768px) {
+    .legal-content-page {
+        /* Reduced vertical padding and added horizontal padding for mobile */
+        padding: 60px 20px;
+    }
+
+    .legal-content-page h1 {
+        font-size: 2rem; /* 32px */
+    }
+
+    .legal-content-page h2 {
+        font-size: 1.5rem; /* 24px */
+    }
+
+    .legal-content-page p,
+    .legal-content-page li {
+        font-size: 0.95rem; /* Slightly smaller text on mobile is often easier to read */
+        line-height: 1.7;
+    }
+}
